@@ -1,7 +1,8 @@
 import './App.css'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
+import './material/ColorMaterial'
 
 function Box(props) {
   // This reference gives us direct access to the THREE.Mesh object
@@ -17,7 +18,8 @@ function Box(props) {
       ref={ref}
       scale={[1.5, 1.5, 1.5]}>
       <boxGeometry args={[5, 1, 1]} />
-      <meshBasicMaterial color={'blue'} />
+      {/* <meshBasicMaterial color={'blue'} /> */}
+      <colorMaterial color='#ff0000' />
     </mesh>
   )
 }
