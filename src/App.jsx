@@ -37,8 +37,8 @@ function Box(props) {
       {...props}
       ref={ref}
       args={[null, null, 1000]}>
-      <boxBufferGeometry attach='geometry' args={[1, 1, 1]} />
-      <meshBasicMaterial attach='material' color={'blue'} />
+      <boxBufferGeometry attach='geometry' args={[0.3, 0.3, 0.3]} />
+      <meshStandardMaterial attach='material' color={'blue'} />
       {/* <colorMaterial attach='material' color='#ff0000' /> */}
     </instancedMesh>
   )
@@ -46,10 +46,10 @@ function Box(props) {
 
 export default function App() {
   return (
-    <Canvas>
-      {/* <ambientLight intensity={0.5} /> */}
-      {/* <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} /> */}
-      {/* <pointLight position={[-10, -10, -10]} /> */}
+    <Canvas camera={{ position: [0, 5, 0] }}>
+      <ambientLight intensity={0.5} />
+      <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+      <pointLight position={[-10, -10, -10]} />
       <Box position={[0, 0, 0]} />
       <OrbitControls />
     </Canvas>
