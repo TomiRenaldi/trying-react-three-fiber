@@ -11,13 +11,15 @@ class ColorMaterial extends THREE.ShaderMaterial
                 varying vec3 vNormal;
                 void main() {
                     vUv = uv;
+                    vNormal = normal;   
                     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
                 }`,
             fragmentShader: `uniform float time;
             uniform vec3 color;
+            varying vec3 vNormal;
             varying vec2 vUv;
             void main() {
-                gl_FragColor.rgba = vec4(1.0, 0.0, 0.0, 1.0);
+                gl_FragColor.rgba = vec4(vNormal, 1.0);
             }`
         })
     }
